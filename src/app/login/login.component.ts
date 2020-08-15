@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Now we will start implementing security
+
   handleLogin(){
      console.log(this.username);
      
