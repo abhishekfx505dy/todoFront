@@ -6,14 +6,15 @@ import { ErrorComponent } from './error/error.component';
 import { AppComponent } from './app.component';
 import { LogoutComponent } from './logout/logout.component';
 import { TodosComponent } from './todos/todos.component';
+import { RouteGuardService } from './service/route-guard.service';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'logout', component: LogoutComponent},
-  {path: 'todos', component: TodosComponent},
-  {path: 'welcome/:name', component: WelcomeComponent},
+  {path: 'logout', component: LogoutComponent, canActivate:[RouteGuardService]},
+  {path: 'todos', component: TodosComponent, canActivate:[RouteGuardService]},
+  {path: 'welcome/:name', component: WelcomeComponent, canActivate:[RouteGuardService]},
   {path: '**', component: ErrorComponent}
 ];
 
