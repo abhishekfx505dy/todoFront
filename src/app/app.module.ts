@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { ErrorComponent } from './error/error.component';
 import { LogoutComponent } from './logout/logout.component';
+import { TodosComponent } from './todos/todos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LogoutComponent } from './logout/logout.component';
     MenuComponent,
     FooterComponent,
     ErrorComponent,
-    LogoutComponent
+    LogoutComponent,
+    TodosComponent
   ],
   imports: [
     BrowserModule,
