@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ErrorComponent } from './error/error.component';
 import { LogoutComponent } from './logout/logout.component';
 import { TodosComponent } from './todos/todos.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TodoDetailsComponent } from './todo-details/todo-details.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { TodosComponent } from './todos/todos.component';
     FooterComponent,
     ErrorComponent,
     LogoutComponent,
-    TodosComponent
+    TodosComponent,
+    TodoDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

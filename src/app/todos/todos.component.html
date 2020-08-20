@@ -1,1 +1,13 @@
 <p>todos works!</p>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="container-fluid" *ngFor="let todo of todos">
+
+    <div>{{todo.id}}----{{todo.description}}----
+        <button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button>------
+        <button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button>
+
+    </div>
+    <br/>
+</div>
