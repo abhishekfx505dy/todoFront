@@ -49,4 +49,8 @@ export class TodosComponent implements OnInit {
     console.log('navigated')
   }
 
+  addTodo(){
+    this.router.navigate(['todos',-1]);
+  }
+
 }

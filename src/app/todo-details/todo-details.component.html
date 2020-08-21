@@ -1,1 +1,26 @@
-<p>todo-details works!</p>
+<h1> Todo Details</h1>
+<div class="container">
+
+    <fieldset class="form-group">
+        <label>Description</label>
+        <input type="text" name="description" required="required" class="form-control"
+                [(ngModel)]="todo.description">
+    </fieldset>
+
+
+    <!-- [(ngModel)]="todo.targetDate"
+            Splitting ngModel to 2 parts.
+            So we can apply Pipe to targetDate -->
+    <fieldset>
+        <label>Target Date</label>
+        <input type="date" name="targetDate" required="required" class="form-control"
+            
+            [ngModel] = "todo.targetDate | date:'yyyy-MM-dd' "
+            (ngModelChange)="todo.targetDate = $event " >
+    </fieldset>
+
+    <br/>
+    <button (click)="saveTodo()" class="btn btn-success">Save</button>
+    
+    
+</div>
