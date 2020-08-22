@@ -25,10 +25,13 @@ export class WelcomeDataService {
   executeHelloWorldServiceWithPathVariable(name){
     let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
 
+
+    //Step 1:  Here we are creating the header object
     let headers = new HttpHeaders({
       Authorization : basicAuthHeaderString
     })
 
+    //Step 2: This is how to pass the header object, in the HTTPVerb from the front end
     return this.httpClient.get<HelloWorldBean>
     (`http://localhost:8080/hello-world/path-variable/${name}`,{headers} );
                                                                       
@@ -38,7 +41,7 @@ export class WelcomeDataService {
   createBasicAuthenticationHttpHeader(){
     let username = 'user'
     let password = 'password'
-    let basicAuthHeaderString = 'Basic'+ window.btoa(username+':'+password)
+    let basicAuthHeaderString = 'Basic '+ window.btoa(username+':'+password)
     return basicAuthHeaderString;
   }
 }
