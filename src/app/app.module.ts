@@ -11,8 +11,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ErrorComponent } from './error/error.component';
 import { LogoutComponent } from './logout/logout.component';
 import { TodosComponent } from './todos/todos.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
+import { HttpInterceptorBasicAuthService } from './service/http/http-interceptor-basic-auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,12 @@ import { TodoDetailsComponent } from './todo-details/todo-details.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    // Right After creating a service class that implements interceptor, as we provide it 
+    // to the required module. Then all request that is going to the server is intercepted
+    // and headers are added to it, thats required for Authentication at backend.
+    {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorBasicAuthService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
